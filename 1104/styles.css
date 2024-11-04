@@ -1,0 +1,58 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  color: rgb(71, 49, 41);
+  background-color: antiquewhite;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  /* border: 1px solid black; */
+  /* height: 200px; */
+  width: 150px;
+  margin: 100px 30px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  padding: 0 10px;
+  gap: 20px;
+  border-bottom: 1px solid black;
+  align-items: last baseline;
+  justify-content: space-between;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+.toggle {
+  font-size: 2rem;
+  cursor: pointer;
+  transform: rotate(0);
+  transition-duration: 0.3s;
+}
+
+.items {
+  display: none;
+}
+
+.item {
+  font-size: 1.3rem;
+  border-bottom: 1px solid black;
+  padding: 8px 0 0 10px;
+}
