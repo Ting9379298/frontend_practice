@@ -13,15 +13,37 @@ body {
   background-color: antiquewhite;
 }
 
+#list-container {
+  margin: 100px;
+  padding-bottom: 10px;
+  border: 1px solid;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 li {
   list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.select {
+  font-size: 1.6rem;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.select:hover {
+  color: brown;
 }
 
 .container {
   /* border: 1px solid black; */
   /* height: 200px; */
-  width: 150px;
-  margin: 100px 30px;
+  /* width: 150px; */
+  margin: 10px 30px;
 
   display: flex;
   flex-direction: column;
@@ -31,7 +53,7 @@ li {
   display: flex;
   padding: 0 10px;
   gap: 20px;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
   align-items: last baseline;
   justify-content: space-between;
 }
@@ -45,6 +67,10 @@ h2 {
   cursor: pointer;
   transform: rotate(0);
   transition-duration: 0.3s;
+}
+
+.toggle:hover {
+  color: brown;
 }
 
 .items {
