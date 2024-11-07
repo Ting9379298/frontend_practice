@@ -5,37 +5,66 @@
   margin: 0;
   padding: 0;
 
-  font-family: "Nunito", sans-serif;
+  font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  color: rgb(33, 33, 33);
+  color: var(--font-color);
+}
+
+:root {
+  --font-color: rgb(253, 253, 253);
 }
 
 html {
   scroll-snap-type: y mandatory;
 }
 
+body {
+  background-color: #202122;
+}
+
 nav {
-  height: 30px;
+  height: 50px;
   width: 100vw;
-  font-size: 1.2rem;
-  background-color: aliceblue;
+  padding: 0 36px;
   position: fixed;
+
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+}
+
+#logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -1px;
+  color: #7d828a;
+}
+
+#nav-links {
+  font-size: 1.1rem;
+  display: flex;
+  gap: 18px;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--font-color);
 }
 
 section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  scroll-margin-top: 30px;
-  padding: 30px;
+  padding: 60px 330px;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
 }
 
 h1 {
@@ -46,24 +75,72 @@ h1 {
 section p {
   text-align: justify;
   font-size: 1.2rem;
+  font-weight: 300;
 }
 
-section:nth-child(1) {
-  background-color: #d1e9f6;
+.cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 54px;
 }
 
-section:nth-child(2) {
-  background-color: #f6eacb;
+@keyframes spin {
+  form {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
 }
 
-section:nth-child(3) {
-  background-color: #f1d3ce;
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
 }
 
-section:nth-child(4) {
-  background-color: #eecad5;
+.card {
+  background-color: #373a3c;
+  border-radius: 20px;
+  width: 200px;
+  height: 220px;
+  position: relative;
+  transition-duration: 0.8s;
 }
 
-section:nth-child(5) {
-  background-color: #bbe9ff;
+.card:hover {
+  background-color: #4f5356;
+}
+
+.card::after,
+.card::before {
+  content: "";
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  position: absolute;
+  left: -3px;
+  top: -3px;
+  background-image: conic-gradient(
+    from var(--angle),
+    #ff4545,
+    #fcf596,
+    #fbd288,
+    #ff9c73,
+    #ff4545
+  );
+  opacity: 60%;
+  border-radius: 23px;
+  z-index: -1;
+  transition-duration: 0.6s;
+}
+
+.card::before {
+  filter: blur(5px);
+  opacity: 60%;
+}
+
+.card:hover::after,
+.card:hover::before {
+  opacity: 100%;
+  animation: spin 2s linear infinite;
 }
